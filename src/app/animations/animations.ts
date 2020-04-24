@@ -25,22 +25,43 @@ export let fadeBlue = trigger('fade', [
     ]),
 ])
 
-export let slide = trigger('slide', [
-    transition(':enter', [
-        style({
-            transform: 'translateX(-20px)'
-        }),
-        animate(500)
-    ]),
-    transition(':leave', [
-        useAnimation(bounceOutLeftAnimation)
-    ])
-    // transition(':leave', [
+// export let slide = trigger('slide', [
+//     transition(':enter', [
+//         style({
+//             transform: 'translateX(-20px)'
+//         }),
+//         animate(500)
+//     ]),
+//     transition(':leave', [
+//         useAnimation(bounceOutLeftAnimation)
+//     ])
+//     // transition(':leave', [
 
-    //     animate("200ms ease-in", style({
-    //         transform: 'translateX(100%)'
-    //     }))
-    // ])
+//     //     animate("200ms ease-in", style({
+//     //         transform: 'translateX(100%)'
+//     //     }))
+//     // ])
+// ])
+
+export let fadeInAnimation = animation([
+    style({ opacity: 0 }),
+    animate('{{ duration }} {{easing}}')
+], {
+    params: {
+        duration: '2000ms',
+        easing: 'ease-out'
+    }
+})
+
+export let fadeOutAnimation = animation([
+    animate(2000, style({ opacity: 0 }))
 ])
 
-
+export let fade = trigger('fade', [
+    transition(':enter', [
+        useAnimation(fadeInAnimation)
+    ]),
+    transition('leave', [
+        useAnimation(fadeOutAnimation)
+    ])
+])
