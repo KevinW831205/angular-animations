@@ -10,12 +10,18 @@ import { trigger, transition, state, style, animate } from '@angular/animations'
       state('void',style({
         opacity:0 
       })),
-      transition('void <=> *',[
+      transition(':enter, :leave',[
         style({
           backgroundColor: 'yellow',
         }),
         animate(2000),
       ]),
+      // transition('void <=> *',[
+      //   style({
+      //     backgroundColor: 'yellow',
+      //   }),
+      //   animate(2000),
+      // ]),
       // transition('*=>void',[
       //   animate(2000)
       // ])
