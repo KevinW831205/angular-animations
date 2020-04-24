@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { trigger, transition, state, style, animate, useAnimation } from '@angular/animations';
+import { trigger, transition, state, style, animate, useAnimation, query } from '@angular/animations';
 import { fadeBlue, slide, bounceOutLeftAnimation, fadeInAnimation } from '../animations/animations';
 
 @Component({
@@ -7,6 +7,14 @@ import { fadeBlue, slide, bounceOutLeftAnimation, fadeInAnimation } from '../ani
   templateUrl: './todos.component.html',
   styleUrls: ['./todos.component.css'],
   animations: [
+    trigger('todosAnimation', [
+      transition(':enter', [
+        query('h1', [
+          style({ transform: 'translateY(-20px)' }),
+          animate(1000)
+        ])
+      ])
+    ]),
     trigger('todoAnimation', [
       transition(':enter', useAnimation(fadeInAnimation, {
         params: {
@@ -58,13 +66,13 @@ export class TodosComponent {
     let index = this.items.indexOf(item);
     this.items.splice(index, 1);
   }
-  
 
-  animationStarted($event){
+
+  animationStarted($event) {
     console.log($event)
   }
 
-  animationDone($event){
+  animationDone($event) {
     console.log($event)
   }
 }

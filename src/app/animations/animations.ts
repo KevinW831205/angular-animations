@@ -65,3 +65,4 @@ export let fade = trigger('fade', [
         useAnimation(fadeOutAnimation)
     ])
 ])
+
