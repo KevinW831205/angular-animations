@@ -1,4 +1,18 @@
-import { trigger, state, style, transition, animate, keyframes } from '@angular/animations';
+import { trigger, state, style, transition, animate, keyframes, animation, useAnimation } from '@angular/animations';
+
+export let bounceOutLeftAnimation = animation(
+    animate('1s ease-out', keyframes([
+        style({
+            offset: 0.2,
+            opacity: 1,
+            transform: 'translateX(40px)'
+        }),
+        style({
+            offset: 1,
+            opacity: 0,
+            transform: 'translateX(-100%)'
+        })
+    ])))
 
 export let fadeBlue = trigger('fade', [
     state('void', style({ opacity: 0 })),
@@ -19,18 +33,7 @@ export let slide = trigger('slide', [
         animate(500)
     ]),
     transition(':leave', [
-        animate('1s ease-out', keyframes([
-            style({
-                offset: 0.2,
-                opacity: 1,
-                transform: 'translateX(40px)'
-            }),
-            style({
-                offset: 1,
-                opacity: 0,
-                transform: 'translateX(-100%)'
-            })
-        ]))
+        useAnimation(bounceOutLeftAnimation)
     ])
     // transition(':leave', [
 
