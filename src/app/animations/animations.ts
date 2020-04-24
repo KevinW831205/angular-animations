@@ -1,4 +1,4 @@
-import { trigger, state, style, transition, animate } from '@angular/animations';
+import { trigger, state, style, transition, animate, keyframes } from '@angular/animations';
 
 export let fadeBlue = trigger('fade', [
     state('void', style({ opacity: 0 })),
@@ -19,9 +19,25 @@ export let slide = trigger('slide', [
         animate(500)
     ]),
     transition(':leave', [
-
-        animate("500ms ease-in", style({
-            transform: 'translateX(100%)'
-        }))
+        animate('1s ease-out', keyframes([
+            style({
+                offset: 0.2,
+                opacity: 1,
+                transform: 'translateX(40px)'
+            }),
+            style({
+                offset: 1,
+                opacity: 0,
+                transform: 'translateX(-100%)'
+            })
+        ]))
     ])
+    // transition(':leave', [
+
+    //     animate("200ms ease-in", style({
+    //         transform: 'translateX(100%)'
+    //     }))
+    // ])
 ])
+
+
