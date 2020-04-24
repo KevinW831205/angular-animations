@@ -1,14 +1,14 @@
 import { Component, OnInit } from '@angular/core';
 import { trigger, transition, state, style, animate } from '@angular/animations';
-import { fadeBlue } from '../animations/animations';
+import { fadeBlue, slide } from '../animations/animations';
 
 @Component({
   selector: 'app-todos',
   templateUrl: './todos.component.html',
   styleUrls: ['./todos.component.css'],
   animations:[
-
-    fadeBlue
+      slide
+    // fadeBlue
     // trigger('fade',[
     //   state('void',style({
     //     opacity:0 
