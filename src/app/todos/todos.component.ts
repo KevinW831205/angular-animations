@@ -10,7 +10,7 @@ import { fadeBlue, slide, bounceOutLeftAnimation, fadeInAnimation } from '../ani
     trigger('todoAnimation', [
       transition(':enter', useAnimation(fadeInAnimation, {
         params: {
-          duration: '100ms'
+          duration: '500ms'
         }
       })
       ),
@@ -57,5 +57,14 @@ export class TodosComponent {
   removeItem(item) {
     let index = this.items.indexOf(item);
     this.items.splice(index, 1);
+  }
+  
+
+  animationStarted($event){
+    console.log($event)
+  }
+
+  animationDone($event){
+    console.log($event)
   }
 }
