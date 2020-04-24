@@ -1,9 +1,15 @@
 import { Component, OnInit } from '@angular/core';
+import { trigger } from '@angular/animations';
 
 @Component({
   selector: 'app-todos',
   templateUrl: './todos.component.html',
-  styleUrls: ['./todos.component.css']
+  styleUrls: ['./todos.component.css'],
+  animations:[
+    trigger('fade',[
+      
+    ])
+  ]
 })
 export class TodosComponent {
   items: any[] = [
