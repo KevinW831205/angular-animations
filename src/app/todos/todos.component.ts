@@ -1,31 +1,34 @@
 import { Component, OnInit } from '@angular/core';
 import { trigger, transition, state, style, animate } from '@angular/animations';
+import { fadeBlue } from '../animations/animations';
 
 @Component({
   selector: 'app-todos',
   templateUrl: './todos.component.html',
   styleUrls: ['./todos.component.css'],
   animations:[
-    trigger('fade',[
-      state('void',style({
-        opacity:0 
-      })),
-      transition(':enter, :leave',[
-        style({
-          backgroundColor: 'yellow',
-        }),
-        animate(2000),
-      ]),
-      // transition('void <=> *',[
-      //   style({
-      //     backgroundColor: 'yellow',
-      //   }),
-      //   animate(2000),
-      // ]),
-      // transition('*=>void',[
-      //   animate(2000)
-      // ])
-    ])
+
+    fadeBlue
+    // trigger('fade',[
+    //   state('void',style({
+    //     opacity:0 
+    //   })),
+    //   transition(':enter, :leave',[
+    //     style({
+    //       backgroundColor: 'yellow',
+    //     }),
+    //     animate(2000),
+    //   ]),
+    //   // transition('void <=> *',[
+    //   //   style({
+    //   //     backgroundColor: 'yellow',
+    //   //   }),
+    //   //   animate(2000),
+    //   // ]),
+    //   // transition('*=>void',[
+    //   //   animate(2000)
+    //   // ])
+    // ])
   ]
 })
 export class TodosComponent {
