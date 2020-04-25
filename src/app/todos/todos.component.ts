@@ -1,6 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { trigger, transition, state, style, animate, useAnimation, query, animateChild, group, stagger } from '@angular/animations';
-import { fadeBlue, slide, bounceOutLeftAnimation, fadeInAnimation } from '../animations/animations';
+import { fadeBlue, bounceOutLeftAnimation, fadeInAnimation } from '../animations/animations';
 
 @Component({
   selector: 'app-todos',
