@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { trigger, transition, state, style, animate, useAnimation, query, animateChild, group } from '@angular/animations';
+import { trigger, transition, state, style, animate, useAnimation, query, animateChild, group, stagger } from '@angular/animations';
 import { fadeBlue, slide, bounceOutLeftAnimation, fadeInAnimation } from '../animations/animations';
 
 @Component({
@@ -14,8 +14,10 @@ import { fadeBlue, slide, bounceOutLeftAnimation, fadeInAnimation } from '../ani
             style({ transform: 'translateY(-20px)' }),
             animate(1000)
           ]),
-          query('@todoAnimation',[
-            animateChild()
+          query('@todoAnimation', [
+            stagger(500, [
+              animateChild()
+            ])
           ])
         ])
       ])
